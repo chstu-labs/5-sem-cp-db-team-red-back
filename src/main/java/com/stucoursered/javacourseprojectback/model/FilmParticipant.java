@@ -2,6 +2,8 @@ package com.stucoursered.javacourseprojectback.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "film_participants")
 public class FilmParticipant {
@@ -10,6 +12,7 @@ public class FilmParticipant {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "film_id")
     private Film film;
 

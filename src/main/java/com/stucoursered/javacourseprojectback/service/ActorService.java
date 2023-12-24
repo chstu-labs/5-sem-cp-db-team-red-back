@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ActorService {
+
     private final ActorRepository actorRepository;
 
     @Autowired
@@ -22,8 +22,7 @@ public class ActorService {
     }
 
     public Actor getActorById(Long id) {
-        Optional<Actor> optionalActor = actorRepository.findById(id);
-        return optionalActor.orElse(null);
+        return actorRepository.findById(id).orElse(null);
     }
 
     public Actor createActor(Actor actor) {
@@ -31,22 +30,25 @@ public class ActorService {
     }
 
     public Actor updateActor(Long id, Actor updatedActor) {
-        Optional<Actor> optionalExistingActor = actorRepository.findById(id);
+        Actor existingActor = actorRepository.findById(id).orElse(null);
 
-        if (optionalExistingActor.isPresent()) {
-            Actor existingActor = optionalExistingActor.get();
-            // Обновление данных
+        if (existingActor != null) {
             existingActor.setName(updatedActor.getName());
             existingActor.setBirthDate(updatedActor.getBirthDate());
             existingActor.setNationality(updatedActor.getNationality());
-            
+
             return actorRepository.save(existingActor);
         } else {
-            return null; // Актер с указанным идентификатором не найден
+            return null; // Handle not found scenario
         }
     }
 
     public void deleteActor(Long id) {
         actorRepository.deleteById(id);
+    }
+
+    // New method to get actors by film ID
+    public List<Actor> getActorsByFilmId(Long filmId) {
+        return actorRepository.findActorsByFilmId(filmId);
     }
 }

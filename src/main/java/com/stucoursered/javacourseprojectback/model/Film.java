@@ -1,6 +1,9 @@
 package com.stucoursered.javacourseprojectback.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -25,6 +28,7 @@ public class Film {
     private List<Review> reviews;
 
     @OneToMany(mappedBy = "film")
+    @JsonIgnore
     private List<FilmParticipant> filmParticipants;
 
     @OneToMany(mappedBy = "film")

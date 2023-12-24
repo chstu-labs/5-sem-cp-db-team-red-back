@@ -33,7 +33,8 @@ public class FilmScreenwriterController {
     }
 
     @PutMapping("/{id}")
-    public FilmScreenwriter updateFilmScreenwriter(@PathVariable Long id, @RequestBody FilmScreenwriter updatedFilmScreenwriter) {
+    public FilmScreenwriter updateFilmScreenwriter(@PathVariable Long id,
+            @RequestBody FilmScreenwriter updatedFilmScreenwriter) {
         return filmScreenwriterService.updateFilmScreenwriter(id, updatedFilmScreenwriter);
     }
 

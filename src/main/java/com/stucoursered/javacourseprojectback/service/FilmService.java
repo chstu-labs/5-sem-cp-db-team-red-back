@@ -55,4 +55,12 @@ public class FilmService {
     public void deleteFilm(Long id) {
         filmRepository.deleteById(id);
     }
+
+    public List<Film> getFilmsByStudioId(Long studioId) {
+        return filmRepository.findFilmsByStudioId(studioId);
+    }
+
+    public List<Film> getFilmsByActorId(Long actorId) {
+        return filmRepository.findFilmsByActorId(actorId);
+    }
 }

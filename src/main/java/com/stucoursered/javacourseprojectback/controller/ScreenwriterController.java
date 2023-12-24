@@ -22,6 +22,11 @@ public class ScreenwriterController {
         return screenwriterService.getAllScreenwriters();
     }
 
+    @GetMapping("/byFilm/{filmId}")
+    public List<Screenwriter> getScreenwriterFilmId(@PathVariable Long filmId) {
+        return screenwriterService.getScreenwritersByFilmId(filmId);
+    }
+
     @GetMapping("/{id}")
     public Screenwriter getScreenwriterById(@PathVariable Long id) {
         return screenwriterService.getScreenwriterById(id);

@@ -43,5 +43,14 @@ public class FilmController {
     public void deleteFilm(@PathVariable Long id) {
         filmService.deleteFilm(id);
     }
-}
 
+    @GetMapping("/byStudio/{studioId}")
+    public List<Film> getFilmsByStudioId(@PathVariable Long studioId) {
+        return filmService.getFilmsByStudioId(studioId);
+    }
+
+    @GetMapping("/byActor/{actorId}")
+    public List<Film> getFilmsByActorId(@PathVariable Long actorId) {
+        return filmService.getFilmsByActorId(actorId);
+    }
+}

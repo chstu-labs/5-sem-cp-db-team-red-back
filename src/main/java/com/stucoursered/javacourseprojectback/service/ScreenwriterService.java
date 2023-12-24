@@ -1,5 +1,6 @@
 package com.stucoursered.javacourseprojectback.service;
 
+import com.stucoursered.javacourseprojectback.model.Actor;
 import com.stucoursered.javacourseprojectback.model.Screenwriter;
 import com.stucoursered.javacourseprojectback.repository.ScreenwriterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,9 @@ public class ScreenwriterService {
 
     public void deleteScreenwriter(Long id) {
         screenwriterRepository.deleteById(id);
+    }
+
+    public List<Screenwriter> getScreenwritersByFilmId(Long filmId) {
+        return screenwriterRepository.findScreenwritersByFilmId(filmId);
     }
 }

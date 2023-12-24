@@ -22,6 +22,11 @@ public class ActorController {
         return actorService.getAllActors();
     }
 
+    @GetMapping("/byFilm/{filmId}")
+    public List<Actor> getActorsByFilmId(@PathVariable Long filmId) {
+        return actorService.getActorsByFilmId(filmId);
+    }
+
     @GetMapping("/{id}")
     public Actor getActorById(@PathVariable Long id) {
         return actorService.getActorById(id);
