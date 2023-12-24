@@ -11,10 +11,13 @@ import java.util.List;
 
 @Repository
 public interface FilmRepository extends JpaRepository<Film, Long> {
-    
- @Query(nativeQuery = true, value = "CALL GetFilmsByStudioId(:studioId)")
+
+    @Query(nativeQuery = true, value = "CALL GetFilmsByStudioId(:studioId)")
     List<Object[]> findFilmIdAndTitleByStudioId(@Param("studioId") Long studioId);
 
- @Query(nativeQuery = true, value = "CALL GetFilmsByActorId(:actorId)")
+    @Query(nativeQuery = true, value = "CALL GetFilmsByActorId(:actorId)")
     List<Object[]> getFilmsByActorId(@Param("actorId") Long actorId);
+
+    @Query(nativeQuery = true, value = "CALL GetFilmsByScreenwriterId(:screenwriterId)")
+    List<Object[]> findFilmsByScreenwriterId(@Param("screenwriterId") Long screenwriterId);
 }

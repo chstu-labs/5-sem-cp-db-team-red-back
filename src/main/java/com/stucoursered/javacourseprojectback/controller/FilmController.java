@@ -53,4 +53,9 @@ public class FilmController {
     public List<Object[]> getFilmIdAndTitleByActorId(@PathVariable Long actorId) {
         return filmService.getFilmIdAndTitleByActorId(actorId);
     }
+
+    @GetMapping("/byScreenwriter/{screenwriterId}")
+    public List<Object[]> getFilmsByScreenwriterId(@PathVariable Long screenwriterId) {
+        return filmService.getFilmsByScreenwriterId(screenwriterId);
+    }
 }
