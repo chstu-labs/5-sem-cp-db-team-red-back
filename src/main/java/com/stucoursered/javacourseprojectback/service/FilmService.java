@@ -62,6 +62,9 @@ public class FilmService {
     }
 
     public List<Object[]> getFilmIdAndTitleByActorId(Long actorId) {
-        return filmRepository.findFilmIdAndTitleByActorId(actorId);
+        return filmRepository.getFilmsByActorId(actorId);
+    }
+    public List<Object[]> getFilmsByStudioId(Long studioId) {
+        return filmRepository.findFilmIdAndTitleByStudioId(studioId);
     }
 }
