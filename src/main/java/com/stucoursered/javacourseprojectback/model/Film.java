@@ -32,6 +32,7 @@ public class Film {
     private List<FilmParticipant> filmParticipants;
 
     @OneToMany(mappedBy = "film")
+    @JsonIgnore
     private List<FilmScreenwriter> filmScreenwriters;
 
     // Геттеры

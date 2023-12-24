@@ -17,6 +17,7 @@ public class FilmScreenwriter {
     private Film film;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "screenwriter_id")
     private Screenwriter screenwriter;
 

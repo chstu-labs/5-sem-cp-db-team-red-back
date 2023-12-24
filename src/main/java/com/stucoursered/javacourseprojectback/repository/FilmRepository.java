@@ -10,9 +10,10 @@ import java.util.List;
 
 @Repository
 public interface FilmRepository extends JpaRepository<Film, Long> {
-    @Query("SELECT f FROM Film f WHERE f.studio.id = :studioId")
-    List<Film> findFilmsByStudioId(@Param("studioId") Long studioId);
+    
+    @Query("SELECT f.id, f.title FROM Film f WHERE f.studio.id = :studioId")
+    List<Object[]> findFilmIdAndTitleByStudioId(@Param("studioId") Long studioId);
 
-    @Query("SELECT f FROM Film f JOIN FilmParticipant fp ON f.id = fp.film.id JOIN Actor a ON fp.actor.id = a.id WHERE a.id = :actorId")
-    List<Film> findFilmsByActorId(@Param("actorId") Long actorId);
+    @Query("SELECT f.id, f.title FROM Film f JOIN FilmParticipant fp ON f.id = fp.film.id JOIN Actor a ON fp.actor.id = a.id WHERE a.id = :actorId")
+    List<Object[]> findFilmIdAndTitleByActorId(@Param("actorId") Long actorId);
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.stucoursered.javacourseprojectback.model.Film;
 import com.stucoursered.javacourseprojectback.repository.FilmRepository;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -56,11 +57,11 @@ public class FilmService {
         filmRepository.deleteById(id);
     }
 
-    public List<Film> getFilmsByStudioId(Long studioId) {
-        return filmRepository.findFilmsByStudioId(studioId);
+    public List<Object[]> getFilmIdAndTitleByStudioId(Long studioId) {
+        return filmRepository.findFilmIdAndTitleByStudioId(studioId);
     }
 
-    public List<Film> getFilmsByActorId(Long actorId) {
-        return filmRepository.findFilmsByActorId(actorId);
+    public List<Object[]> getFilmIdAndTitleByActorId(Long actorId) {
+        return filmRepository.findFilmIdAndTitleByActorId(actorId);
     }
 }

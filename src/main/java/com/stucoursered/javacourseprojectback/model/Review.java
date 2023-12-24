@@ -1,6 +1,7 @@
 package com.stucoursered.javacourseprojectback.model;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "reviews")
@@ -10,6 +11,7 @@ public class Review {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "film_id")
     private Film film;
 

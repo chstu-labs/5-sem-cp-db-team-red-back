@@ -45,12 +45,12 @@ public class FilmController {
     }
 
     @GetMapping("/byStudio/{studioId}")
-    public List<Film> getFilmsByStudioId(@PathVariable Long studioId) {
-        return filmService.getFilmsByStudioId(studioId);
+    public List<Object[]> getFilmIdAndTitleByStudioId(@PathVariable Long studioId) {
+        return filmService.getFilmIdAndTitleByStudioId(studioId);
     }
 
     @GetMapping("/byActor/{actorId}")
-    public List<Film> getFilmsByActorId(@PathVariable Long actorId) {
-        return filmService.getFilmsByActorId(actorId);
+    public List<Object[]> getFilmIdAndTitleByActorId(@PathVariable Long actorId) {
+        return filmService.getFilmIdAndTitleByActorId(actorId);
     }
 }
