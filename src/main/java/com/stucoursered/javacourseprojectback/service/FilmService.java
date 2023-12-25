@@ -2,6 +2,8 @@ package com.stucoursered.javacourseprojectback.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.stucoursered.javacourseprojectback.dto.FilmDto;
 import com.stucoursered.javacourseprojectback.model.Film;
 import com.stucoursered.javacourseprojectback.repository.FilmRepository;
 
@@ -57,19 +59,20 @@ public class FilmService {
         filmRepository.deleteById(id);
     }
 
-    public List<Object[]> getFilmIdAndTitleByStudioId(Long studioId) {
+    public List<FilmDto> getFilmIdAndTitleByStudioId(Long studioId) {
         return filmRepository.findFilmIdAndTitleByStudioId(studioId);
     }
 
-    public List<Object[]> getFilmIdAndTitleByActorId(Long actorId) {
+    public List<FilmDto> getFilmIdAndTitleByActorId(Long actorId) {
         return filmRepository.getFilmsByActorId(actorId);
     }
+    
 
-    public List<Object[]> getFilmsByStudioId(Long studioId) {
+    public List<FilmDto> getFilmsByStudioId(Long studioId) {
         return filmRepository.findFilmIdAndTitleByStudioId(studioId);
     }
 
-    public List<Object[]> getFilmsByScreenwriterId(Long screenwriterId) {
+    public List<FilmDto> getFilmsByScreenwriterId(Long screenwriterId) {
         return filmRepository.findFilmsByScreenwriterId(screenwriterId);
     }
 }

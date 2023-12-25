@@ -3,6 +3,7 @@ package com.stucoursered.javacourseprojectback.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.stucoursered.javacourseprojectback.dto.FilmDto;
 import com.stucoursered.javacourseprojectback.model.Film;
 import com.stucoursered.javacourseprojectback.service.FilmService;
 
@@ -45,17 +46,17 @@ public class FilmController {
     }
 
     @GetMapping("/byStudio/{studioId}")
-    public List<Object[]> getFilmIdAndTitleByStudioId(@PathVariable Long studioId) {
+    public List<FilmDto> getFilmIdAndTitleByStudioId(@PathVariable Long studioId) {
         return filmService.getFilmIdAndTitleByStudioId(studioId);
     }
 
     @GetMapping("/byActor/{actorId}")
-    public List<Object[]> getFilmIdAndTitleByActorId(@PathVariable Long actorId) {
+    public List<FilmDto> getFilmIdAndTitleByActorId(@PathVariable Long actorId) {
         return filmService.getFilmIdAndTitleByActorId(actorId);
     }
 
     @GetMapping("/byScreenwriter/{screenwriterId}")
-    public List<Object[]> getFilmsByScreenwriterId(@PathVariable Long screenwriterId) {
+    public List<FilmDto> getFilmsByScreenwriterId(@PathVariable Long screenwriterId) {
         return filmService.getFilmsByScreenwriterId(screenwriterId);
     }
 }
