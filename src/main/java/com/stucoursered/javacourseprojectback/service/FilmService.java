@@ -75,4 +75,8 @@ public class FilmService {
     public List<FilmDto> getFilmsByScreenwriterId(Long screenwriterId) {
         return filmRepository.findFilmsByScreenwriterId(screenwriterId);
     }
+
+    public List<Film> getTop10NewestFilms() {
+        return filmRepository.findTop10ByOrderByYearDesc();
+    }
 }

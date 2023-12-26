@@ -1,6 +1,8 @@
 package com.stucoursered.javacourseprojectback.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.stucoursered.javacourseprojectback.dto.FilmDto;
@@ -58,5 +60,11 @@ public class FilmController {
     @GetMapping("/byScreenwriter/{screenwriterId}")
     public List<FilmDto> getFilmsByScreenwriterId(@PathVariable Long screenwriterId) {
         return filmService.getFilmsByScreenwriterId(screenwriterId);
+    }
+
+@GetMapping("/top")
+    public ResponseEntity<List<Film>> getTop10NewestFilms() {
+        List<Film> films = filmService.getTop10NewestFilms();
+        return new ResponseEntity<>(films, HttpStatus.OK);
     }
 }

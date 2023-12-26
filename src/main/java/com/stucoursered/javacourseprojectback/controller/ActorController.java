@@ -3,6 +3,8 @@ package com.stucoursered.javacourseprojectback.controller;
 import com.stucoursered.javacourseprojectback.model.Actor;
 import com.stucoursered.javacourseprojectback.service.ActorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,5 +47,11 @@ public class ActorController {
     @DeleteMapping("/{id}")
     public void deleteActor(@PathVariable Long id) {
         actorService.deleteActor(id);
+    }
+
+    @GetMapping("/top")
+    public ResponseEntity<List<Actor>> getOldestActors() {
+        List<Actor> oldestActors = actorService.getOldestActors();
+        return new ResponseEntity<>(oldestActors, HttpStatus.OK);
     }
 }

@@ -21,4 +21,7 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
     @Query("SELECT new com.stucoursered.javacourseprojectback.dto.FilmDto(f.id, f.title) FROM Film f JOIN f.filmScreenwriters fs WHERE fs.screenwriter.id = :screenwriterId")
     List<FilmDto> findFilmsByScreenwriterId(@Param("screenwriterId") Long screenwriterId);
+
+    List<Film> findTop10ByOrderByYearDesc();
+
 }

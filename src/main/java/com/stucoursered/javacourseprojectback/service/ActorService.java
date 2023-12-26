@@ -51,4 +51,7 @@ public class ActorService {
     public List<Actor> getActorsByFilmId(Long filmId) {
         return actorRepository.findActorsByFilmId(filmId);
     }
+    public List<Actor> getOldestActors() {
+        return actorRepository.findTop10ByOrderByBirthDateAsc();
+    }
 }
